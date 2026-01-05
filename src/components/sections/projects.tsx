@@ -6,7 +6,7 @@ import { Github, ExternalLink } from 'lucide-react'
 const projects = [
     {
         title: 'Leukemia Mortality Prediction',
-        description: 'Survival analysis for leukemia patients. Ranked top 10 / 100+ teams in national data challenge. 75.45% IPCW C-index.',
+        description: 'Survival analysis for leukemia patients. Ranked top 10% of candidates in national QRT-ENS data challenge. 75.45% IPCW C-index.',
         tech: ['Python', 'Random Survival Forest', 'CoxPH', 'SHAP'],
         github: 'https://github.com/IliassSjm/QRT-ENS-DataChallenge-',
     },
@@ -20,7 +20,7 @@ const projects = [
         title: 'Log Anomaly Detection',
         description: 'LSTM-based sequence model for anomaly detection in event logs. FastAPI + Kafka streaming.',
         tech: ['PyTorch', 'LSTM', 'Kafka', 'FastAPI'],
-        github: 'https://github.com/IliassSjm',
+        github: 'https://github.com/IliassSjm/large-anomaly-detection',
     },
 ]
 

@@ -9,7 +9,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Iliass Sijelmassi | Data Scientist & ML Engineer",
-  description: "Data Scientist & ML Engineer specializing in Python, PyTorch, and end-to-end ML pipelines. Joint MSc @ École Polytechnique & HEC Paris.",
+  description: "Data Scientist & ML Engineer specializing in Python, PyTorch, and end-to-end ML pipelines. Joint Master @ École Polytechnique & HEC Paris.",
   keywords: ["data science", "machine learning", "python", "pytorch", "École Polytechnique", "HEC Paris"],
   authors: [{ name: "Iliass Sijelmassi" }],
 };

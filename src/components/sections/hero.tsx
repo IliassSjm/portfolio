@@ -53,7 +53,7 @@ export function HeroSection() {
 
                         <p className="text-neutral-400 max-w-lg mb-8">
                             I&apos;m passionate about machine learning, generative AI, and statistics.
-                            Currently pursuing a joint MSc in AI at École Polytechnique & HEC Paris.
+                            Currently pursuing a joint Master in AI at École Polytechnique & HEC Paris.
                         </p>
 
                         <div className="flex flex-wrap gap-4">
