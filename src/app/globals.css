@@ -29,23 +29,23 @@
 
 :root {
   --radius: 0.625rem;
-  /* Soft charcoal - not pure black */
-  --background: #0F0F0F;
-  --foreground: #FAFAFA;
-  --card: #161616;
-  --card-foreground: #FAFAFA;
-  --primary: #FAFAFA;
-  --primary-foreground: #0F0F0F;
-  --secondary: #1C1C1C;
-  --secondary-foreground: #FAFAFA;
-  --muted: #1C1C1C;
-  --muted-foreground: #999999;
-  /* Neutral accent - no colored accent */
-  --accent: #2A2A2A;
-  --accent-foreground: #FAFAFA;
-  --border: #2A2A2A;
-  --input: #2A2A2A;
-  --ring: #FAFAFA;
+  /* Modern slate theme - bright and approachable */
+  --background: #1E2330;
+  --foreground: #F8FAFC;
+  --card: #283042;
+  --card-foreground: #F8FAFC;
+  --primary: #F8FAFC;
+  --primary-foreground: #1E2330;
+  --secondary: #334155;
+  --secondary-foreground: #F8FAFC;
+  --muted: #334155;
+  --muted-foreground: #94A3B8;
+  /* Subtle accent */
+  --accent: #3B4963;
+  --accent-foreground: #F8FAFC;
+  --border: #475569;
+  --input: #3B4963;
+  --ring: #F8FAFC;
 }
 
 @layer base {
@@ -69,16 +69,16 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F0F0F;
+  background: #1E2330;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  background: #475569;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #64748B;
 }
 
 /* Selection */

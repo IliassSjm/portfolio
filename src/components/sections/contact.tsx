@@ -26,7 +26,7 @@ const contactLinks = [
 
 export function ContactSection() {
     return (
-        <section id="contact" className="py-24 md:py-32 border-t border-neutral-800">
+        <section id="contact" className="py-24 md:py-32 border-t border-border">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export function ContactSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                                className="group flex items-center justify-between p-4 rounded-xl border border-neutral-800 hover:bg-neutral-900 transition-colors"
+                                className="group flex items-center justify-between p-4 rounded-xl border border-border hover:bg-secondary transition-colors"
                             >
                                 <div className="flex items-center gap-3">
                                     <Icon className="w-5 h-5 text-neutral-500 group-hover:text-white transition-colors" />
@@ -79,7 +79,7 @@ export function ContactSection() {
 
 export function Footer() {
     return (
-        <footer className="py-8 border-t border-neutral-800">
+        <footer className="py-8 border-t border-border">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-neutral-500">

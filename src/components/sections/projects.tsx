@@ -26,7 +26,7 @@ const projects = [
 
 export function ProjectsSection() {
     return (
-        <section id="projects" className="py-24 md:py-32 border-t border-neutral-800">
+        <section id="projects" className="py-24 md:py-32 border-t border-border">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -49,7 +49,7 @@ export function ProjectsSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: i * 0.1 }}
-                            className="group p-6 rounded-xl border border-neutral-800 bg-neutral-900/30 hover:bg-neutral-900/60 transition-colors"
+                            className="group p-6 rounded-xl border border-border bg-secondary/30 hover:bg-secondary/60 transition-colors"
                         >
                             <div className="flex items-start justify-between mb-4">
                                 <h3 className="text-lg font-medium group-hover:text-neutral-300 transition-colors">
@@ -75,7 +75,7 @@ export function ProjectsSection() {
                                 {project.tech.map((tech) => (
                                     <span
                                         key={tech}
-                                        className="px-2 py-1 text-xs text-neutral-500 bg-neutral-800/50 rounded"
+                                        className="px-2 py-1 text-xs text-muted-foreground bg-secondary/50 rounded"
                                     >
                                         {tech}
                                     </span>

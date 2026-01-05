@@ -9,6 +9,7 @@ const navItems = [
     { label: 'About', href: '#about' },
     { label: 'Projects', href: '#projects' },
     { label: 'Experience', href: '#experience' },
+    { label: 'Papers', href: '#papers' },
     { label: 'Contact', href: '#contact' },
 ]
 
@@ -93,7 +94,7 @@ export function Navigation() {
                 initial={false}
                 animate={isOpen ? { x: 0 } : { x: '100%' }}
                 transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-                className="fixed inset-y-0 right-0 z-40 w-full max-w-sm bg-[#0F0F0F] border-l border-neutral-800 md:hidden"
+                className="fixed inset-y-0 right-0 z-40 w-full max-w-sm bg-[#1E2330] border-l border-border md:hidden"
             >
                 <div className="flex flex-col gap-6 p-12 pt-24">
                     {navItems.map((item, i) => (

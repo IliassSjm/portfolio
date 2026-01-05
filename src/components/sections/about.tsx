@@ -17,7 +17,7 @@ export function AboutSection() {
                         transition={{ duration: 0.6 }}
                         className="lg:col-span-1"
                     >
-                        <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-neutral-800">
+                        <div className="relative w-48 h-48 md:w-64 md:h-64 mx-auto lg:mx-0 rounded-2xl overflow-hidden border border-border">
                             <Image
                                 src="/headshot.jpg"
                                 alt="Iliass Sijelmassi"

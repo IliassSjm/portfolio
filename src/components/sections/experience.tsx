@@ -25,7 +25,7 @@ const experiences = [
 
 export function ExperienceSection() {
     return (
-        <section id="experience" className="py-24 md:py-32 border-t border-neutral-800">
+        <section id="experience" className="py-24 md:py-32 border-t border-border">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -48,7 +48,7 @@ export function ExperienceSection() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, delay: i * 0.1 }}
-                            className="grid md:grid-cols-4 gap-4 py-6 border-b border-neutral-800 last:border-0 group"
+                            className="grid md:grid-cols-4 gap-4 py-6 border-b border-border last:border-0 group"
                         >
                             <div className="text-sm text-neutral-500">
                                 {exp.period}
