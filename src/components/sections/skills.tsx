@@ -10,7 +10,7 @@ const skills = {
 
 export function SkillsSection() {
     return (
-        <section id="skills" className="py-24 md:py-32 border-t border-neutral-800">
+        <section id="skills" className="py-24 md:py-32 border-t border-border">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -39,7 +39,7 @@ export function SkillsSection() {
                                 {items.map((skill) => (
                                     <span
                                         key={skill}
-                                        className="px-3 py-1.5 text-sm border border-neutral-800 rounded-full hover:bg-neutral-800 transition-colors cursor-default"
+                                        className="px-3 py-1.5 text-sm border border-border rounded-full hover:bg-secondary transition-colors cursor-default"
                                     >
                                         {skill}
                                     </span>

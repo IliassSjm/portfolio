@@ -30,7 +30,7 @@ export function HeroSection() {
 
     return (
         <section className="min-h-screen flex items-center justify-center p-4 md:p-8">
-            <Card className="w-full max-w-6xl h-[600px] md:h-[700px] bg-[#141414] relative overflow-hidden border-neutral-800">
+            <Card className="w-full max-w-6xl h-[600px] md:h-[700px] bg-card relative overflow-hidden border-border">
                 <Spotlight
                     className="-top-40 left-0 md:left-60 md:-top-20"
                     fill="white"
@@ -65,7 +65,7 @@ export function HeroSection() {
                             </Link>
                             <Link
                                 href="#contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 border border-neutral-600 text-sm font-medium rounded-full hover:bg-neutral-800 transition-colors"
+                                className="inline-flex items-center gap-2 px-6 py-3 border border-border text-sm font-medium rounded-full hover:bg-secondary transition-colors"
                             >
                                 Get in Touch
                             </Link>
@@ -73,7 +73,7 @@ export function HeroSection() {
                                 href="/cv.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-6 py-3 border border-neutral-600 text-sm font-medium rounded-full hover:bg-neutral-800 transition-colors"
+                                className="inline-flex items-center gap-2 px-6 py-3 border border-border text-sm font-medium rounded-full hover:bg-secondary transition-colors"
                             >
                                 View CV
                             </a>
