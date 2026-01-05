@@ -56,7 +56,7 @@ export function AboutSection() {
                                 <div>
                                     <p className="font-medium mb-1">Education</p>
                                     <p className="text-sm text-neutral-500">
-                                        MSc AI & Data Science<br />
+                                        M2 AI & Data Science<br />
                                         Polytechnique & HEC Paris
                                     </p>
                                 </div>
