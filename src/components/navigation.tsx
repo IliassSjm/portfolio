@@ -53,7 +53,7 @@ export function Navigation() {
                         <Github className="w-5 h-5" />
                     </a>
                     <a
-                        href="https://linkedin.com/in/iliass-sijelmassi"
+                        href="https://www.linkedin.com/in/iliass-sijelmassi-068b46189/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-neutral-400 hover:text-white transition-colors"

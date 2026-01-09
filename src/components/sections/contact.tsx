@@ -18,8 +18,8 @@ const contactLinks = [
     },
     {
         label: 'LinkedIn',
-        value: 'linkedin.com/in/iliass-sijelmassi',
-        href: 'https://linkedin.com/in/iliass-sijelmassi',
+        value: 'linkedin.com/in/iliass-sijelmassi-068b46189',
+        href: 'https://www.linkedin.com/in/iliass-sijelmassi-068b46189/',
         icon: Linkedin,
     },
 ]
@@ -89,7 +89,7 @@ export function Footer() {
                         <a href="https://github.com/IliassSjm" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-500 hover:text-white transition-colors">
                             GitHub
                         </a>
-                        <a href="https://linkedin.com/in/iliass-sijelmassi" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-500 hover:text-white transition-colors">
+                        <a href="https://www.linkedin.com/in/iliass-sijelmassi-068b46189/" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-500 hover:text-white transition-colors">
                             LinkedIn
                         </a>
                     </div>
