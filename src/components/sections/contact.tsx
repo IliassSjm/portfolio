@@ -83,7 +83,7 @@ export function Footer() {
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-sm text-neutral-500">
-                        © 2025 Iliass Sijelmassi
+                        © 2026 Iliass Sijelmassi
                     </p>
                     <div className="flex items-center gap-6">
                         <a href="https://github.com/IliassSjm" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-500 hover:text-white transition-colors">

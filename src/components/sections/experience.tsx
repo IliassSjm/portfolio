@@ -4,6 +4,12 @@ import { motion } from 'framer-motion'
 
 const experiences = [
     {
+        title: 'AI Researcher Intern (Visiting Student)',
+        company: 'Stanford University',
+        period: 'Mar 2026 – Current',
+        description: 'Conducting research in AI for cardiology under the supervision of Dr. Louise Sun, building deep learning models to predict cardiovascular risks. Processing and extracting predictive signals from large-scale, noisy longitudinal clinical datasets, applying rigorous statistical validation to ensure robustness.',
+    },
+    {
         title: 'Data Scientist Intern',
         company: 'Crédit Agricole CIB',
         period: 'Mar 2025 – Sep 2025',

@@ -39,15 +39,15 @@ export function AboutSection() {
                         <p className="text-sm text-neutral-500 mb-4">About Me</p>
 
                         <h2 className="text-3xl md:text-4xl font-light leading-relaxed mb-6">
-                            I&apos;m an <span className="font-medium">AI student</span> at Polytechnique & HEC Paris,{' '}
-                            passionate about <span className="font-medium">machine learning</span>,{' '}
+                            I&apos;m an <span className="font-medium">AI Researcher</span> at Stanford University,{' '}
+                            passionate about <span className="font-medium">deep learning</span>,{' '}
                             <span className="font-medium">generative AI</span>, and <span className="font-medium">statistics</span>.
                         </h2>
 
                         <p className="text-neutral-400 leading-relaxed mb-8">
-                            With hands-on experience at Crédit Agricole CIB and at Infosys developing
-                            enterprise platforms for Renault, I combine technical expertise with
-                            business understanding to deliver solutions that work.
+                            Currently researching AI for cardiology at Stanford under Dr. Louise Sun.
+                            With experience at Crédit Agricole CIB and Infosys (Renault), I combine
+                            research depth with industry expertise to deliver impactful solutions.
                         </p>
 
                         <div className="grid md:grid-cols-3 gap-6">
@@ -57,7 +57,8 @@ export function AboutSection() {
                                     <p className="font-medium mb-1">Education</p>
                                     <p className="text-sm text-neutral-500">
                                         M2 AI & Data Science<br />
-                                        Polytechnique & HEC Paris
+                                        Polytechnique & HEC Paris<br />
+                                        Visiting Student @ Stanford
                                     </p>
                                 </div>
                             </div>
@@ -67,7 +68,7 @@ export function AboutSection() {
                                 <div>
                                     <p className="font-medium mb-1">Location</p>
                                     <p className="text-sm text-neutral-500">
-                                        Paris, France
+                                        Stanford, CA / Paris, France
                                     </p>
                                 </div>
                             </div>
@@ -77,7 +78,7 @@ export function AboutSection() {
                                 <div>
                                     <p className="font-medium mb-1">Status</p>
                                     <p className="text-sm text-neutral-500">
-                                        Open to opportunities
+                                        AI Researcher @ Stanford
                                     </p>
                                 </div>
                             </div>

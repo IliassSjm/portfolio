@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Iliass Sijelmassi | Data Scientist & ML Engineer",
-  description: "Data Scientist & ML Engineer specializing in Python, PyTorch, and end-to-end ML pipelines. Joint Master @ École Polytechnique & HEC Paris.",
-  keywords: ["data science", "machine learning", "python", "pytorch", "École Polytechnique", "HEC Paris"],
+  title: "Iliass Sijelmassi | AI Researcher @ Stanford · ML Engineer",
+  description: "AI Researcher at Stanford University specializing in deep learning for cardiology. ML Engineer with expertise in Python, PyTorch, and end-to-end ML pipelines. Joint Master @ École Polytechnique & HEC Paris.",
+  keywords: ["AI research", "Stanford University", "data science", "machine learning", "deep learning", "python", "pytorch", "École Polytechnique", "HEC Paris", "cardiology AI"],
   authors: [{ name: "Iliass Sijelmassi" }],
 };
 
