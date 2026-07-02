@@ -6,9 +6,9 @@ import { Github, ExternalLink } from 'lucide-react'
 const projects = [
     {
         title: 'Crypto Perpetuals Alpha Strategy',
-        description: 'Dollar-neutral long-short strategy across 411 crypto perpetual futures. Ranked #1 of 13 teams on out-of-sample Sharpe (ML for Financial Markets, HEC Paris). ~500 features filtered via Spearman IC into a Ridge + XGBoost ensemble under strict walk-forward validation.',
+        description: 'Dollar-neutral long-short strategy across 411 crypto perpetual futures. Ranked #1 of 13 teams on out-of-sample Sharpe (ML for Financial Markets, HEC Paris). 379 candidate features filtered via Spearman IC and correlation pruning to 316, feeding a Ridge + XGBoost ensemble under a rolling 12-month walk-forward.',
         tech: ['Python', 'XGBoost', 'Ridge', 'Walk-forward CV'],
-        github: '',
+        github: 'https://github.com/IliassSjm/crypto-perps-alpha',
     },
     {
         title: 'Cognitive Alpha — Spatial Decision Analytics',
