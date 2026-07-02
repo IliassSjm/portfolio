@@ -6,7 +6,7 @@ import { FileText, ExternalLink } from 'lucide-react'
 const papers = [
     {
         title: 'GMSK Modulation: Analysis and Implementation',
-        description: 'Comprehensive study of Gaussian Minimum Shift Keying modulation, covering theoretical foundations, spectral efficiency analysis, and practical implementation considerations for modern communication systems.',
+        description: 'Technical report on Gaussian Minimum Shift Keying modulation: theoretical foundations, spectral efficiency analysis, and practical implementation considerations for modern communication systems.',
         file: '/GMSK.pdf',
         year: '2024',
         tags: ['Signal Processing', 'Digital Communications', 'Modulation'],
@@ -24,9 +24,9 @@ export function PapersSection() {
                     transition={{ duration: 0.6 }}
                     className="mb-12"
                 >
-                    <p className="text-sm text-neutral-500 mb-4">Research</p>
+                    <p className="text-sm text-neutral-500 mb-4">Writing</p>
                     <h2 className="text-3xl md:text-4xl font-light">
-                        Papers &amp; Publications
+                        Technical Reports
                     </h2>
                 </motion.div>
 
@@ -73,18 +73,6 @@ export function PapersSection() {
                         </motion.a>
                     ))}
                 </div>
-
-                {papers.length === 1 && (
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: 0.3 }}
-                        className="text-center text-neutral-500 text-sm mt-8"
-                    >
-                        More papers coming soon...
-                    </motion.p>
-                )}
             </div>
         </section>
     )

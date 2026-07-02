@@ -5,14 +5,26 @@ import { Github, ExternalLink } from 'lucide-react'
 
 const projects = [
     {
+        title: 'Crypto Perpetuals Alpha Strategy',
+        description: 'Dollar-neutral long-short strategy across 411 crypto perpetual futures. Ranked #1 of 13 teams on out-of-sample Sharpe (ML for Financial Markets, HEC Paris). ~500 features filtered via Spearman IC into a Ridge + XGBoost ensemble under strict walk-forward validation.',
+        tech: ['Python', 'XGBoost', 'Ridge', 'Walk-forward CV'],
+        github: '',
+    },
+    {
+        title: 'Cognitive Alpha — Spatial Decision Analytics',
+        description: 'Quantified pass decision quality on FIFA World Cup 2022 tracking data (~5.4 GB): Expected Threat model via Markov-chain value iteration on 234k events, NumPy-vectorised pitch-control engine, Streamlit dashboard.',
+        tech: ['Python', 'NumPy', 'Markov chains', 'Streamlit'],
+        github: '',
+    },
+    {
         title: 'Leukemia Mortality Prediction',
-        description: 'Survival analysis for leukemia patients. Ranked top 10% of candidates in national QRT-ENS data challenge. 75.45% IPCW C-index.',
+        description: 'Survival analysis for leukemia patients. Finished top 12% in the national QRT-ENS data challenge. 75.45% IPCW C-index.',
         tech: ['Python', 'Random Survival Forest', 'CoxPH', 'SHAP'],
         github: 'https://github.com/IliassSjm/QRT-ENS-DataChallenge-',
     },
     {
         title: 'Options Market Maker',
-        description: 'Real-time market making simulation with production-ready REST API. Sub-50ms P99 latency.',
+        description: 'Real-time options market-making simulation: quoting and inventory management, served via FastAPI.',
         tech: ['Python', 'FastAPI', 'Docker', 'Pydantic'],
         github: 'https://github.com/IliassSjm/options-market-maker-sim',
     },

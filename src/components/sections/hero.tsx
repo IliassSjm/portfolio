@@ -40,7 +40,7 @@ export function HeroSection() {
                     {/* Left content */}
                     <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
                         <p className="text-neutral-400 text-sm mb-4">
-                            AI Researcher @ Stanford · Polytechnique & HEC Paris
+                            Visiting Researcher @ Stanford · Polytechnique & HEC Paris
                         </p>
 
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 mb-6">
@@ -48,7 +48,7 @@ export function HeroSection() {
                         </h1>
 
                         <p className="text-lg md:text-xl text-neutral-300 mb-4">
-                            AI Researcher & ML Engineer
+                            Researcher & Engineer
                         </p>
 
                         <p className="text-neutral-400 max-w-lg mb-8">

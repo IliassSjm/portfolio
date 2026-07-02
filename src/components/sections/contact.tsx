@@ -40,8 +40,8 @@ export function ContactSection() {
                         Let&apos;s Connect
                     </h2>
                     <p className="text-neutral-400">
-                        I&apos;m currently looking for opportunities in ML Engineering,
-                        Data Science, and Applied ML. Feel free to reach out.
+                        I&apos;m currently looking for opportunities in Quantitative Research,
+                        ML Engineering, and Data Science. Feel free to reach out.
                     </p>
                 </motion.div>
 

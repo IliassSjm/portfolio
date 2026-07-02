@@ -39,7 +39,7 @@ export function AboutSection() {
                         <p className="text-sm text-neutral-500 mb-4">About Me</p>
 
                         <h2 className="text-3xl md:text-4xl font-light leading-relaxed mb-6">
-                            I&apos;m an <span className="font-medium">AI Researcher</span> at Stanford University,{' '}
+                            I&apos;m a <span className="font-medium">Visiting Researcher</span> at Stanford University,{' '}
                             passionate about <span className="font-medium">deep learning</span>,{' '}
                             <span className="font-medium">generative AI</span>, and <span className="font-medium">statistics</span>.
                         </h2>
@@ -56,7 +56,7 @@ export function AboutSection() {
                                 <div>
                                     <p className="font-medium mb-1">Education</p>
                                     <p className="text-sm text-neutral-500">
-                                        M2 AI & Data Science<br />
+                                        MSc Data Science & AI<br />
                                         Polytechnique & HEC Paris<br />
                                         Visiting Student @ Stanford
                                     </p>
@@ -78,7 +78,7 @@ export function AboutSection() {
                                 <div>
                                     <p className="font-medium mb-1">Status</p>
                                     <p className="text-sm text-neutral-500">
-                                        AI Researcher @ Stanford
+                                        Visiting Researcher @ Stanford
                                     </p>
                                 </div>
                             </div>
