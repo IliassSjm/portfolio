@@ -12,9 +12,9 @@ const projects = [
     },
     {
         title: 'Cognitive Alpha — Spatial Decision Analytics',
-        description: 'Quantified pass decision quality on FIFA World Cup 2022 tracking data (~5.4 GB): Expected Threat model via Markov-chain value iteration on 234k events, NumPy-vectorised pitch-control engine, Streamlit dashboard.',
+        description: 'Quantified pass decision quality on FIFA World Cup 2022 tracking data (~5.4 GB): Expected Threat model via Markov-chain value iteration on 126k possession actions across all 64 matches, NumPy-vectorised pitch-control engine, Streamlit dashboard.',
         tech: ['Python', 'NumPy', 'Markov chains', 'Streamlit'],
-        github: '',
+        github: 'https://github.com/IliassSjm/cognitive-alpha',
     },
     {
         title: 'Leukemia Mortality Prediction',
