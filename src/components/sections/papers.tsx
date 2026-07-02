@@ -5,6 +5,13 @@ import { FileText, ExternalLink } from 'lucide-react'
 
 const papers = [
     {
+        title: 'Predicting Severe Pericardial Tamponade After Cardiac Surgery',
+        description: 'MSc research paper in collaboration with Stanford University School of Medicine, supervised by Prof. Louise Sun. Benchmarks four model families on a Stanford surgical cohort (95 severe incident events, 6,761 controls); a calibrated pre-operative model reaches AUROC 0.74, and later ICU and bedside-waveform data add no established increment once monitoring-intensity confounds and selection optimism are controlled. Includes a methodological framework for trustworthy evaluation on small, rare-event waveform cohorts.',
+        file: '/ResearchPaper2026_I_SIJELMASSI_PredictingSevereTamponade.pdf',
+        year: '2026',
+        tags: ['Clinical ML', 'Cardiac Surgery', 'Physiological Waveforms'],
+    },
+    {
         title: 'GMSK Modulation: Analysis and Implementation',
         description: 'Technical report on Gaussian Minimum Shift Keying modulation: theoretical foundations, spectral efficiency analysis, and practical implementation considerations for modern communication systems.',
         file: '/GMSK.pdf',
@@ -24,9 +31,9 @@ export function PapersSection() {
                     transition={{ duration: 0.6 }}
                     className="mb-12"
                 >
-                    <p className="text-sm text-neutral-500 mb-4">Writing</p>
+                    <p className="text-sm text-neutral-500 mb-4">Research</p>
                     <h2 className="text-3xl md:text-4xl font-light">
-                        Technical Reports
+                        Papers &amp; Reports
                     </h2>
                 </motion.div>
 
