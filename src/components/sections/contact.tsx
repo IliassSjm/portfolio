@@ -40,8 +40,9 @@ export function ContactSection() {
                         Let&apos;s Connect
                     </h2>
                     <p className="text-neutral-400">
-                        I&apos;m currently looking for opportunities in Quantitative Research,
-                        ML Engineering, and Data Science. Feel free to reach out.
+                        I&apos;m joining WorldQuant as a Quantitative Researcher Intern in
+                        October 2026, and open to full-time quantitative research roles
+                        from Spring 2027. Feel free to reach out.
                     </p>
                 </motion.div>
 

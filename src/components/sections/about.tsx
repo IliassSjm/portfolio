@@ -40,8 +40,8 @@ export function AboutSection() {
 
                         <h2 className="text-3xl md:text-4xl font-light leading-relaxed mb-6">
                             I&apos;m a <span className="font-medium">Visiting Researcher</span> at Stanford University,{' '}
-                            passionate about <span className="font-medium">deep learning</span>,{' '}
-                            <span className="font-medium">generative AI</span>, and <span className="font-medium">statistics</span>.
+                            passionate about <span className="font-medium">statistics</span>,{' '}
+                            <span className="font-medium">machine learning</span>, and <span className="font-medium">quantitative research</span>.
                         </h2>
 
                         <p className="text-neutral-400 leading-relaxed mb-8">

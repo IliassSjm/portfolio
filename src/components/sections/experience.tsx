@@ -4,9 +4,15 @@ import { motion } from 'framer-motion'
 
 const experiences = [
     {
+        title: 'Quantitative Researcher Intern (Incoming)',
+        company: 'WorldQuant',
+        period: 'Oct 2026 – Mar 2027',
+        description: 'Incoming 6-month internship in systematic alpha signal research and backtesting.',
+    },
+    {
         title: 'Visiting Student Researcher',
         company: 'Stanford University',
-        period: 'Mar 2026 – Current',
+        period: 'Mar 2026 – Sep 2026',
         description: 'Conducting research in AI for cardiology under the supervision of Dr. Louise Sun, building deep learning models to predict cardiovascular risks. Processing and extracting predictive signals from large-scale, noisy longitudinal clinical datasets, applying rigorous statistical validation to ensure robustness.',
     },
     {
