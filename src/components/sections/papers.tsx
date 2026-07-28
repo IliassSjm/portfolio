@@ -6,7 +6,7 @@ import { FileText, ExternalLink } from 'lucide-react'
 const papers = [
     {
         title: 'Predicting Severe Pericardial Tamponade After Cardiac Surgery',
-        description: 'MSc research paper in collaboration with Stanford University School of Medicine, supervised by Prof. Louise Sun. Benchmarks four model families on a Stanford surgical cohort (95 severe incident events, 6,761 controls); a calibrated pre-operative model reaches AUROC 0.74, and later ICU and bedside-waveform data add no established increment once monitoring-intensity confounds and selection optimism are controlled. Includes a methodological framework for trustworthy evaluation on small, rare-event waveform cohorts.',
+        description: 'MSc research paper in collaboration with Stanford University School of Medicine, supervised by Prof. Louise Sun. Benchmarks four model families on a Stanford surgical cohort (95 severe incident events, 6,761 controls); a calibrated pre-operative model reaches AUROC 0.74 and validates externally on MIMIC-IV (AUROC 0.695, 11,969 independent cardiac-surgery admissions). Later ICU and bedside-waveform data add no established increment once monitoring-intensity confounds and selection optimism are controlled; includes a methodological framework for trustworthy evaluation on small, rare-event waveform cohorts.',
         file: '/ResearchPaper2026_I_SIJELMASSI_PredictingSevereTamponade.pdf',
         year: '2026',
         tags: ['Clinical ML', 'Cardiac Surgery', 'Physiological Waveforms'],
