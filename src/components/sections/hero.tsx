@@ -6,6 +6,13 @@ import { XtHeatmap } from '@/components/ui/xt-heatmap'
 
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
+const logos = [
+    { src: '/logos/stanford.svg', alt: 'Stanford University', h: 'h-5' },
+    { src: '/logos/polytechnique.png', alt: 'École Polytechnique', h: 'h-9' },
+    { src: '/logos/hec.svg', alt: 'HEC Paris', h: 'h-9' },
+    { src: '/logos/credit-agricole.svg', alt: 'Crédit Agricole CIB', h: 'h-5' },
+]
+
 export function HeroSection() {
     return (
         <section className="min-h-screen flex items-center border-b border-border">
@@ -19,7 +26,7 @@ export function HeroSection() {
                             transition={{ duration: 0.6, ease }}
                             className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-6"
                         >
-                            Paris → Stanford · systematic research
+                            Machine learning · Quantitative research
                         </motion.p>
 
                         <motion.h1
@@ -37,26 +44,17 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, ease, delay: 0.16 }}
-                            className="text-lg text-muted-foreground max-w-md leading-relaxed mb-4"
+                            className="text-lg text-muted-foreground max-w-md leading-relaxed mb-10"
                         >
-                            I build prediction systems and test them honestly.
-                            Markets, clinical waveforms, tracking data.
-                        </motion.p>
-
-                        <motion.p
-                            initial={{ opacity: 0, y: 12 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, ease, delay: 0.22 }}
-                            className="font-mono text-xs text-muted-foreground mb-10"
-                        >
-                            Visiting Researcher @ Stanford · MSc Data Science & AI, X-HEC
+                            Visiting Student Researcher at Stanford University.
+                            MSc Data Science &amp; AI, École Polytechnique &amp; HEC Paris.
                         </motion.p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, ease, delay: 0.3 }}
-                            className="flex flex-wrap gap-3"
+                            transition={{ duration: 0.7, ease, delay: 0.24 }}
+                            className="flex flex-wrap gap-3 mb-14"
                         >
                             <Link
                                 href="/#projects"
@@ -78,6 +76,26 @@ export function HeroSection() {
                             >
                                 Contact ↗
                             </Link>
+                        </motion.div>
+
+                        {/* Institutions */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8, ease, delay: 0.4 }}
+                        >
+                            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+                                {logos.map((logo) => (
+                                    /* eslint-disable-next-line @next/next/no-img-element */
+                                    <img
+                                        key={logo.alt}
+                                        src={logo.src}
+                                        alt={logo.alt}
+                                        title={logo.alt}
+                                        className={`${logo.h} w-auto opacity-50 hover:opacity-90 transition-opacity [filter:brightness(0)_invert(1)]`}
+                                    />
+                                ))}
+                            </div>
                         </motion.div>
                     </div>
 

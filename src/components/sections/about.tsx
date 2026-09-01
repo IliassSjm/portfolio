@@ -18,15 +18,13 @@ export function AboutSection() {
                 <div className="grid lg:grid-cols-3 gap-12 items-start">
                     <div className="lg:col-span-2">
                         <h2 className="font-display text-2xl md:text-3xl font-medium leading-snug tracking-tight mb-6 max-w-2xl">
-                            I work at the intersection of statistics, machine learning and
-                            messy real-world data.
+                            Machine learning researcher and engineer.
                         </h2>
                         <p className="text-muted-foreground leading-relaxed max-w-2xl mb-10">
-                            Right now that means cardiac-event prediction at Stanford under
-                            Dr. Louise Sun, on 1.5 TB of clinical waveforms. Before that,
-                            audit-risk models at Crédit Agricole CIB and supply-chain
-                            backends at Renault. The through line: build the model, then try
-                            hard to break it before anyone else does.
+                            Currently at Stanford University, working on cardiac-event
+                            prediction from clinical waveform data with Prof. Louise Sun.
+                            Previously data science at Crédit Agricole CIB and software
+                            engineering at Infosys (Renault).
                         </p>
 
                         <dl className="border-t border-border max-w-2xl">
