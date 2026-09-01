@@ -7,10 +7,10 @@ import { XtHeatmap } from '@/components/ui/xt-heatmap'
 const ease: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 const logos = [
-    { src: '/logos/stanford.svg', alt: 'Stanford University', h: 'h-5' },
-    { src: '/logos/polytechnique.png', alt: 'École Polytechnique', h: 'h-9' },
-    { src: '/logos/hec.svg', alt: 'HEC Paris', h: 'h-9' },
-    { src: '/logos/credit-agricole.svg', alt: 'Crédit Agricole CIB', h: 'h-5' },
+    { src: '/logos/stanford.svg', alt: 'Stanford University', h: 'h-5', filter: '[filter:brightness(0)_invert(1)]' },
+    { src: '/logos/polytechnique.png', alt: 'École Polytechnique', h: 'h-8', filter: '[filter:invert(1)_grayscale(1)_brightness(1.15)]' },
+    { src: '/logos/hec.svg', alt: 'HEC Paris', h: 'h-9', filter: '[filter:brightness(0)_invert(1)]' },
+    { src: '/logos/credit-agricole.svg', alt: 'Crédit Agricole CIB', h: 'h-5', filter: '[filter:brightness(0)_invert(1)]' },
 ]
 
 export function HeroSection() {
@@ -93,7 +93,7 @@ export function HeroSection() {
                                         src={logo.src}
                                         alt={logo.alt}
                                         title={logo.alt}
-                                        className={`${logo.h} w-auto opacity-50 hover:opacity-90 transition-opacity [filter:brightness(0)_invert(1)]`}
+                                        className={`${logo.h} w-auto opacity-60 hover:opacity-100 transition-opacity ${logo.filter}`}
                                     />
                                 ))}
                             </div>
