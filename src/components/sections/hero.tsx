@@ -46,7 +46,8 @@ export function HeroSection() {
                             transition={{ duration: 0.7, ease, delay: 0.16 }}
                             className="text-lg text-muted-foreground max-w-md leading-relaxed mb-10"
                         >
-                            Visiting Student Researcher at Stanford University.
+                            Quantitative Researcher Intern at WorldQuant (Millennium) from
+                            October. Visiting Student Researcher at Stanford University.
                             MSc Data Science &amp; AI, École Polytechnique &amp; HEC Paris.
                         </motion.p>
 

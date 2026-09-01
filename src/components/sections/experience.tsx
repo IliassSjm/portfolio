@@ -2,6 +2,13 @@
 
 const experiences = [
     {
+        title: 'Quantitative Researcher Intern',
+        company: 'WorldQuant (Millennium)',
+        period: 'Oct 2026 — Mar 2027',
+        description:
+            'Systematic quantitative research within a Millennium systematic pod. Mission details confidential.',
+    },
+    {
         title: 'Visiting Student Researcher',
         company: 'Stanford University',
         period: 'Mar 2026 — Sep 2026',

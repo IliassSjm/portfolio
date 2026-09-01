@@ -20,8 +20,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Iliass Sijelmassi | Visiting Researcher @ Stanford · ML Engineer",
-  description: "Visiting Researcher at Stanford University working on deep learning for cardiology. ML Engineer with expertise in Python, PyTorch, and end-to-end ML pipelines. Joint Master @ École Polytechnique & HEC Paris.",
+  title: "Iliass Sijelmassi | Quantitative Researcher @ WorldQuant · Visiting Researcher @ Stanford",
+  description: "Quantitative Researcher Intern at WorldQuant (Millennium). Visiting Researcher at Stanford University working on deep learning for cardiology. MSc Data Science & AI @ École Polytechnique & HEC Paris.",
   keywords: ["AI research", "Stanford University", "data science", "machine learning", "deep learning", "python", "pytorch", "École Polytechnique", "HEC Paris", "cardiology AI"],
   authors: [{ name: "Iliass Sijelmassi" }],
 };

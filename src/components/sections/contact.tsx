@@ -8,7 +8,8 @@ export function ContactSection() {
                     04 · Contact
                 </p>
                 <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight mb-8 max-w-3xl">
-                    Looking for opportunities in quantitative research and applied ML.
+                    Joining WorldQuant in October. Open to full-time quantitative
+                    research roles from Spring 2027.
                 </h2>
                 <a
                     href="mailto:iliass.sijelmassi-idrissi@polytechnique.edu"
