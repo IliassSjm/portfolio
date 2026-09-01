@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const instrumentSans = Instrument_Sans({
+  variable: "--font-body",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-sg",
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-disp",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -34,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased font-sans bg-background text-foreground`}
+        className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} antialiased font-sans bg-background text-foreground`}
         suppressHydrationWarning
       >
         {children}

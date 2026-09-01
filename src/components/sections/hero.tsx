@@ -33,7 +33,7 @@ export function HeroSection() {
                             initial={{ opacity: 0, y: 12 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.7, ease, delay: 0.08 }}
-                            className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] mb-8"
+                            className="font-display text-6xl md:text-7xl lg:text-8xl tracking-tight leading-[0.9] mb-8"
                         >
                             Iliass
                             <br />

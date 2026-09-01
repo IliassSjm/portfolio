@@ -17,7 +17,7 @@ export function AboutSection() {
                 </p>
                 <div className="grid lg:grid-cols-3 gap-12 items-start">
                     <div className="lg:col-span-2">
-                        <h2 className="font-display text-2xl md:text-3xl font-medium leading-snug tracking-tight mb-6 max-w-2xl">
+                        <h2 className="font-display text-3xl md:text-4xl leading-snug tracking-tight mb-6 max-w-2xl">
                             Machine learning researcher and engineer.
                         </h2>
                         <p className="text-muted-foreground leading-relaxed max-w-2xl mb-10">

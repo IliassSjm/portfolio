@@ -45,7 +45,7 @@ export function ExperienceSection() {
                     <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-3">
                         02 · Experience
                     </p>
-                    <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
+                    <h2 className="font-display text-4xl md:text-5xl tracking-tight">
                         Where I have worked
                     </h2>
                 </div>

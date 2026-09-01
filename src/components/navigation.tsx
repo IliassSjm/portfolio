@@ -21,7 +21,7 @@ export function Navigation() {
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 backdrop-blur-md bg-background/70">
+            <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/95">
                 {/* Scroll progress hairline */}
                 <motion.div
                     className="absolute bottom-0 left-0 right-0 h-px bg-signal origin-left"

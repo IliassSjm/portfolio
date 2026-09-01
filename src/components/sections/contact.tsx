@@ -7,7 +7,7 @@ export function ContactSection() {
                 <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-3">
                     04 · Contact
                 </p>
-                <h2 className="font-display text-3xl md:text-5xl font-medium tracking-tight mb-8 max-w-3xl">
+                <h2 className="font-display text-4xl md:text-6xl tracking-tight mb-8 max-w-3xl">
                     Joining WorldQuant in October. Open to full-time quantitative
                     research roles from Spring 2027.
                 </h2>
