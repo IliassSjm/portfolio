@@ -1,31 +1,32 @@
 'use client'
 
-import { motion } from 'framer-motion'
-
 const experiences = [
     {
         title: 'Visiting Student Researcher',
         company: 'Stanford University',
-        period: 'Mar 2026 – Current',
-        description: 'Conducting research in AI for cardiology under the supervision of Dr. Louise Sun, building deep learning models to predict cardiovascular risks. Processing and extracting predictive signals from large-scale, noisy longitudinal clinical datasets, applying rigorous statistical validation to ensure robustness.',
+        period: 'Mar 2026 — Sep 2026',
+        description:
+            'Cardiac-event prediction under Dr. Louise Sun: deep learning on large-scale, noisy longitudinal clinical data, with leakage-controlled evaluation against clinical risk scores. First-author paper in preparation.',
     },
     {
         title: 'Data Scientist Intern',
         company: 'Crédit Agricole CIB',
-        period: 'Mar 2025 – Sep 2025',
-        description: 'Built audit risk prediction models (XGBoost) to forecast overdue internal audit actions on 200k+ historical records. Applied time-aware validation and SHAP for explainability.',
+        period: 'Mar 2025 — Sep 2025',
+        description:
+            'Audit-risk models on 200k+ records (XGBoost + regularized logistic regression), purged time-series validation, SHAP explainability for auditors.',
     },
     {
         title: 'Java Consultant Intern',
-        company: 'Infosys – Renault',
-        period: 'Mar 2023 – Oct 2023',
-        description: 'Developed backend modules for supply-chain platforms (R3, EPO). Java, PostgreSQL, Oracle.',
+        company: 'Infosys — Renault',
+        period: 'Mar 2023 — Oct 2023',
+        description:
+            'Backend modules for supply-chain platforms. Java, PostgreSQL, Oracle.',
     },
     {
         title: 'Software Developer Intern',
         company: "Kuyper's Auto",
-        period: 'Jun 2022 – Aug 2022',
-        description: 'Built web interface and online reservation system. Direct client collaboration.',
+        period: 'Jun 2022 — Aug 2022',
+        description: 'Web interface and online reservation system, built directly with the owner.',
     },
 ]
 
@@ -33,38 +34,34 @@ export function ExperienceSection() {
     return (
         <section id="experience" className="py-24 md:py-32 border-t border-border">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-12"
-                >
-                    <p className="text-sm text-neutral-500 mb-4">Experience</p>
-                    <h2 className="text-3xl md:text-4xl font-light">
-                        Where I&apos;ve Worked
+                <div className="mb-12">
+                    <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-3">
+                        02 · Experience
+                    </p>
+                    <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
+                        Where I have worked
                     </h2>
-                </motion.div>
+                </div>
 
-                <div className="space-y-8">
-                    {experiences.map((exp, i) => (
-                        <motion.div
-                            key={exp.company}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
-                            className="grid md:grid-cols-4 gap-4 py-6 border-b border-border last:border-0 group"
+                <div className="border-t border-border">
+                    {experiences.map((exp) => (
+                        <div
+                            key={exp.company + exp.period}
+                            className="grid md:grid-cols-4 gap-3 py-6 border-b border-border group"
                         >
-                            <div className="text-sm text-neutral-500">
+                            <div className="font-mono text-xs text-muted-foreground pt-1 tabular-nums">
                                 {exp.period}
                             </div>
-                            <div className="md:col-span-3">
-                                <h3 className="font-medium mb-1">{exp.title}</h3>
-                                <p className="text-neutral-500 mb-2">{exp.company}</p>
-                                <p className="text-neutral-400 text-sm">{exp.description}</p>
+                            <div className="md:col-span-3 max-w-2xl">
+                                <h3 className="font-medium">
+                                    {exp.title}
+                                    <span className="text-muted-foreground font-normal"> · {exp.company}</span>
+                                </h3>
+                                <p className="text-sm text-muted-foreground leading-relaxed mt-2">
+                                    {exp.description}
+                                </p>
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

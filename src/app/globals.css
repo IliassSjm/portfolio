@@ -6,8 +6,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-sg);
+  --font-mono: var(--font-jbm);
   --color-ring: var(--ring);
   --color-input: var(--input);
   --color-border: var(--border);
@@ -21,6 +22,7 @@
   --color-primary: var(--primary);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-signal: var(--signal);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -28,24 +30,25 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  /* Modern slate theme - bright and approachable */
-  --background: #1E2330;
-  --foreground: #F8FAFC;
-  --card: #283042;
-  --card-foreground: #F8FAFC;
-  --primary: #F8FAFC;
-  --primary-foreground: #1E2330;
-  --secondary: #334155;
-  --secondary-foreground: #F8FAFC;
-  --muted: #334155;
-  --muted-foreground: #94A3B8;
-  /* Subtle accent */
-  --accent: #3B4963;
-  --accent-foreground: #F8FAFC;
-  --border: #475569;
-  --input: #3B4963;
-  --ring: #F8FAFC;
+  --radius: 0.375rem;
+  /* Near-black, warm-neutral base */
+  --background: #0B0C0F;
+  --foreground: #EDEEF0;
+  --card: #111318;
+  --card-foreground: #EDEEF0;
+  --primary: #EDEEF0;
+  --primary-foreground: #0B0C0F;
+  --secondary: #191C22;
+  --secondary-foreground: #EDEEF0;
+  --muted: #191C22;
+  --muted-foreground: #8B919C;
+  --accent: #1E222A;
+  --accent-foreground: #EDEEF0;
+  --border: #22262E;
+  --input: #1E222A;
+  --ring: #34D399;
+  /* Single accent: market green */
+  --signal: #34D399;
 }
 
 @layer base {
@@ -69,53 +72,20 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1E2330;
+  background: #0B0C0F;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #475569;
+  background: #2A2F38;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #64748B;
+  background: #3A404B;
 }
 
 /* Selection */
 ::selection {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(52, 211, 153, 0.22);
   color: #fff;
-}
-
-/* Loader Animation */
-.loader {
-  width: 20px;
-  height: 20px;
-  border: 2px solid #333;
-  border-top-color: #fff;
-  border-radius: 50%;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-/* Spotlight Animation */
-@keyframes spotlight {
-  0% {
-    opacity: 0;
-    transform: translate(-72%, -62%) scale(0.5);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -40%) scale(1);
-  }
-}
-
-.animate-spotlight {
-  animation: spotlight 2s ease .75s 1 forwards;
 }

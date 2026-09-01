@@ -1,96 +1,105 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Card } from "@/components/ui/card"
-import { Spotlight } from "@/components/ui/spotlight"
+import { motion } from 'framer-motion'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
+import { XtHeatmap } from '@/components/ui/xt-heatmap'
 
-// Lazy load Spline only after initial render for better performance
-const SplineScene = dynamic(
-    () => import('@/components/ui/spline').then(mod => ({ default: mod.SplineScene })),
-    {
-        ssr: false,
-        loading: () => (
-            <div className="w-full h-full flex items-center justify-center">
-                <div className="loader"></div>
-            </div>
-        )
-    }
-)
+const ease: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
 export function HeroSection() {
-    const [showSpline, setShowSpline] = useState(false)
-
-    // Delay Spline load to prioritize content
-    useEffect(() => {
-        const timer = setTimeout(() => setShowSpline(true), 1000)
-        return () => clearTimeout(timer)
-    }, [])
-
     return (
-        <section className="min-h-screen flex items-center justify-center p-4 md:p-8">
-            <Card className="w-full max-w-6xl h-[600px] md:h-[700px] bg-card relative overflow-hidden border-border">
-                <Spotlight
-                    className="-top-40 left-0 md:left-60 md:-top-20"
-                    fill="white"
-                />
+        <section className="min-h-screen flex items-center border-b border-border">
+            <div className="container mx-auto px-6 md:px-12 lg:px-24 pt-28 pb-16">
+                <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    {/* Left — text */}
+                    <div>
+                        <motion.p
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.6, ease }}
+                            className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-6"
+                        >
+                            Paris → Stanford · systematic research
+                        </motion.p>
 
-                <div className="flex flex-col md:flex-row h-full">
-                    {/* Left content */}
-                    <div className="flex-1 p-8 md:p-12 relative z-10 flex flex-col justify-center">
-                        <p className="text-neutral-400 text-sm mb-4">
-                            Visiting Researcher @ Stanford · Polytechnique & HEC Paris
-                        </p>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease, delay: 0.08 }}
+                            className="font-display text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight leading-[0.95] mb-8"
+                        >
+                            Iliass
+                            <br />
+                            Sijelmassi
+                        </motion.h1>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 mb-6">
-                            Hello, I&apos;m Iliass Sijelmassi
-                        </h1>
+                        <motion.p
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease, delay: 0.16 }}
+                            className="text-lg text-muted-foreground max-w-md leading-relaxed mb-4"
+                        >
+                            I build prediction systems and test them honestly.
+                            Markets, clinical waveforms, tracking data.
+                        </motion.p>
 
-                        <p className="text-lg md:text-xl text-neutral-300 mb-4">
-                            Researcher & Engineer
-                        </p>
+                        <motion.p
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease, delay: 0.22 }}
+                            className="font-mono text-xs text-muted-foreground mb-10"
+                        >
+                            Visiting Researcher @ Stanford · MSc Data Science & AI, X-HEC
+                        </motion.p>
 
-                        <p className="text-neutral-400 max-w-lg mb-8">
-                            Currently researching AI for cardiology at Stanford University.
-                            Passionate about deep learning, generative AI, and statistics.
-                        </p>
-
-                        <div className="flex flex-wrap gap-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7, ease, delay: 0.3 }}
+                            className="flex flex-wrap gap-3"
+                        >
                             <Link
-                                href="#projects"
-                                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black text-sm font-medium rounded-full hover:bg-neutral-200 transition-colors"
+                                href="/#projects"
+                                className="px-5 py-2.5 bg-primary text-primary-foreground text-sm font-medium rounded-md hover:bg-white transition-colors"
                             >
-                                View My Work
-                            </Link>
-                            <Link
-                                href="#contact"
-                                className="inline-flex items-center gap-2 px-6 py-3 border border-border text-sm font-medium rounded-full hover:bg-secondary transition-colors"
-                            >
-                                Get in Touch
+                                Selected work
                             </Link>
                             <a
                                 href="/cv.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-6 py-3 border border-border text-sm font-medium rounded-full hover:bg-secondary transition-colors"
+                                className="px-5 py-2.5 border border-border text-sm font-medium rounded-md hover:border-muted-foreground transition-colors"
                             >
-                                View CV
+                                CV
                             </a>
-                        </div>
+                            <Link
+                                href="/#contact"
+                                className="px-5 py-2.5 text-sm font-medium text-muted-foreground rounded-md hover:text-foreground transition-colors"
+                            >
+                                Contact ↗
+                            </Link>
+                        </motion.div>
                     </div>
 
-                    {/* Right content - 3D Scene (lazy loaded) */}
-                    <div className="flex-1 relative hidden md:block">
-                        {showSpline && (
-                            <SplineScene
-                                scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-                                className="w-full h-full"
-                            />
-                        )}
-                    </div>
+                    {/* Right — real data as ornament */}
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.8, ease, delay: 0.35 }}
+                        className="hidden lg:flex justify-end"
+                    >
+                        <a
+                            href="https://github.com/IliassSjm/cognitive-alpha"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block hover:opacity-90 transition-opacity"
+                            title="From my cognitive-alpha project"
+                        >
+                            <XtHeatmap />
+                        </a>
+                    </motion.div>
                 </div>
-            </Card>
+            </div>
         </section>
     )
 }

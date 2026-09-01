@@ -1,121 +1,142 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Github, ExternalLink } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 
-const projects = [
+interface Metric {
+    value: string
+    label: string
+}
+
+interface Project {
+    title: string
+    description: string
+    tech: string
+    github: string
+    metrics?: Metric[]
+    featured?: boolean
+}
+
+const projects: Project[] = [
     {
-        title: 'Crypto Perpetuals Alpha Strategy',
-        description: 'Dollar-neutral long-short strategy across 411 crypto perpetual futures. Ranked #1 of 13 teams on out-of-sample Sharpe (ML for Financial Markets, HEC Paris). 379 candidate features filtered via Spearman IC and correlation pruning to 316, feeding a Ridge + XGBoost ensemble under a rolling 12-month walk-forward.',
-        tech: ['Python', 'XGBoost', 'Ridge', 'Walk-forward CV'],
+        title: 'Crypto Perpetuals Alpha',
+        description:
+            'Dollar-neutral long-short across 411 crypto perpetual futures. 379 candidate features pruned to 316 via Spearman IC, Ridge + XGBoost under a rolling 12-month walk-forward, with the cost analysis that kills the headline number.',
+        tech: 'Python · XGBoost · Ridge · walk-forward CV',
         github: 'https://github.com/IliassSjm/crypto-perps-alpha',
+        featured: true,
+        metrics: [
+            { value: '#1 / 13', label: 'OOS Sharpe, HEC course' },
+            { value: '9.75', label: 'Sharpe @ lag 0, gross' },
+            { value: '1.2 bps', label: 'break-even cost' },
+        ],
     },
     {
-        title: 'Cognitive Alpha — Spatial Decision Analytics',
-        description: 'Quantified pass decision quality on FIFA World Cup 2022 tracking data (~5.4 GB): Expected Threat model via Markov-chain value iteration on 126k possession actions across all 64 matches, NumPy-vectorised pitch-control engine, Streamlit dashboard.',
-        tech: ['Python', 'NumPy', 'Markov chains', 'Streamlit'],
+        title: 'Cognitive Alpha',
+        description:
+            'Per-pass decision quality on World Cup 2022 tracking data: trained Expected Threat, Spearman-style pitch control, and the gap between the pass played and the best option available.',
+        tech: 'Python · NumPy · Markov chains · Streamlit',
         github: 'https://github.com/IliassSjm/cognitive-alpha',
+        featured: true,
+        metrics: [
+            { value: '126k', label: 'possession actions' },
+            { value: 'r = 0.93', label: 'vs reference xT grid' },
+            { value: '5.4 GB', label: 'tracking data fused' },
+        ],
     },
     {
-        title: 'Leukemia Mortality Prediction',
-        description: 'Survival analysis for leukemia patients. Finished top 12% in the national QRT-ENS data challenge. 75.45% IPCW C-index.',
-        tech: ['Python', 'Random Survival Forest', 'CoxPH', 'SHAP'],
+        title: 'Leukemia Survival Prediction',
+        description:
+            'Overall survival on clinical + genomic data from 24 hospitals, Cox proportional hazards. Top 12% of the national QRT / ENS data challenge.',
+        tech: 'Python · CoxPH · survival analysis',
         github: 'https://github.com/IliassSjm/QRT-ENS-DataChallenge-',
     },
     {
         title: 'Options Market Maker',
-        description: 'Real-time options market-making simulation: quoting and inventory management, served via FastAPI.',
-        tech: ['Python', 'FastAPI', 'Docker', 'Pydantic'],
+        description:
+            'Options market-making simulation: quoting and inventory management, served via FastAPI.',
+        tech: 'Python · FastAPI · Docker',
         github: 'https://github.com/IliassSjm/options-market-maker-sim',
     },
     {
         title: 'Log Anomaly Detection',
-        description: 'LSTM-based sequence model for anomaly detection in event logs. FastAPI + Kafka streaming.',
-        tech: ['PyTorch', 'LSTM', 'Kafka', 'FastAPI'],
+        description:
+            'LSTM sequence model learning the normal grammar of event logs, deployed behind Kafka streaming.',
+        tech: 'PyTorch · LSTM · Kafka',
         github: 'https://github.com/IliassSjm/large-anomaly-detection',
     },
 ]
+
+function ProjectCard({ project }: { project: Project }) {
+    return (
+        <motion.a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ y: -3 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 24 }}
+            className={`group flex flex-col rounded-lg border border-border bg-card p-6 md:p-7 hover:border-signal/50 transition-colors ${
+                project.featured ? 'lg:col-span-3' : 'lg:col-span-2'
+            }`}
+        >
+            <div className="flex items-start justify-between gap-4 mb-3">
+                <h3 className="font-display text-xl font-medium">{project.title}</h3>
+                <ArrowUpRight className="w-4 h-4 shrink-0 text-muted-foreground group-hover:text-signal transition-colors" />
+            </div>
+
+            <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                {project.description}
+            </p>
+
+            {project.metrics && (
+                <div className="grid grid-cols-3 gap-4 border-t border-border pt-5 mb-5">
+                    {project.metrics.map((m) => (
+                        <div key={m.label}>
+                            <p className="font-mono text-lg text-signal tabular-nums">{m.value}</p>
+                            <p className="font-mono text-[10px] text-muted-foreground uppercase tracking-wide mt-1">
+                                {m.label}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+            )}
+
+            <p className="font-mono text-[11px] text-muted-foreground mt-auto">
+                {project.tech}
+            </p>
+        </motion.a>
+    )
+}
 
 export function ProjectsSection() {
     return (
         <section id="projects" className="py-24 md:py-32 border-t border-border">
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="mb-12"
-                >
-                    <p className="text-sm text-neutral-500 mb-4">Projects</p>
-                    <h2 className="text-3xl md:text-4xl font-light">
-                        Featured Work
+                <div className="mb-12">
+                    <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-3">
+                        01 · Work
+                    </p>
+                    <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight">
+                        Selected projects
                     </h2>
-                </motion.div>
+                </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.map((project, i) => (
-                        <motion.div
-                            key={project.title}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: i * 0.1 }}
-                            className="group p-6 rounded-xl border border-border bg-secondary/30 hover:bg-secondary/60 transition-colors"
-                        >
-                            <div className="flex items-start justify-between mb-4">
-                                <h3 className="text-lg font-medium group-hover:text-neutral-300 transition-colors">
-                                    {project.title}
-                                </h3>
-                                {project.github && (
-                                    <a
-                                        href={project.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="text-neutral-500 hover:text-white transition-colors"
-                                    >
-                                        <Github className="w-5 h-5" />
-                                    </a>
-                                )}
-                            </div>
-
-                            <p className="text-neutral-400 text-sm mb-4">
-                                {project.description}
-                            </p>
-
-                            <div className="flex flex-wrap gap-2">
-                                {project.tech.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="px-2 py-1 text-xs text-muted-foreground bg-secondary/50 rounded"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </motion.div>
+                <div className="grid lg:grid-cols-6 gap-4">
+                    {projects.map((project) => (
+                        <ProjectCard key={project.title} project={project} />
                     ))}
                 </div>
 
-                {/* GitHub Link */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: 0.4 }}
-                    className="mt-12 text-center"
-                >
+                <div className="mt-10">
                     <a
                         href="https://github.com/IliassSjm"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-neutral-400 hover:text-white transition-colors"
+                        className="font-mono text-xs text-muted-foreground hover:text-signal transition-colors"
                     >
-                        <Github className="w-5 h-5" />
-                        See all projects on GitHub
-                        <ExternalLink className="w-4 h-4" />
+                        more on github ↗
                     </a>
-                </motion.div>
+                </div>
             </div>
         </section>
     )
