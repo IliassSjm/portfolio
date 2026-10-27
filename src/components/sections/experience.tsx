@@ -6,7 +6,7 @@ const experiences = [
         company: 'WorldQuant (Millennium)',
         period: 'Oct 2026 — Mar 2027',
         description:
-            'Systematic quantitative research within a Millennium systematic pod. Mission details confidential.',
+            'Research on LLM-based signal extraction from text data within a Millennium systematic pod.',
     },
     {
         title: 'Visiting Student Researcher',
@@ -28,12 +28,6 @@ const experiences = [
         period: 'Mar 2023 — Oct 2023',
         description:
             'Backend modules for supply-chain platforms. Java, PostgreSQL, Oracle.',
-    },
-    {
-        title: 'Software Developer Intern',
-        company: "Kuyper's Auto",
-        period: 'Jun 2022 — Aug 2022',
-        description: 'Web interface and online reservation system, built directly with the owner.',
     },
 ]
 

@@ -30,33 +30,6 @@ const projects: Project[] = [
         tech: 'Python · NumPy · Markov chains · Streamlit',
         github: 'https://github.com/IliassSjm/cognitive-alpha',
     },
-    {
-        title: 'Leukemia Survival Prediction',
-        year: '2025',
-        description:
-            'Overall survival on clinical + genomic data from 24 hospitals, Cox proportional hazards. QRT / ENS national data challenge.',
-        metrics: 'top 12% of the challenge · 4,500+ patients',
-        tech: 'Python · CoxPH · survival analysis',
-        github: 'https://github.com/IliassSjm/QRT-ENS-DataChallenge-',
-    },
-    {
-        title: 'Options Market Maker',
-        year: '2025',
-        description:
-            'Options market-making simulation: Black-Scholes quoting, inventory skew and delta hedging. Static and Avellaneda-Stoikov quoting compared on paired price paths, spread widths matched so the comparison is fair.',
-        metrics: '1,000-run backtest · A-S vs static on 200 paired paths',
-        tech: 'Python · FastAPI · Docker',
-        github: 'https://github.com/IliassSjm/options-market-maker-sim',
-    },
-    {
-        title: 'Log Anomaly Detection',
-        year: '2023',
-        description:
-            'Two LSTM detectors over event logs behind Kafka streaming: a supervised classifier and a next-event language model trained on normal traffic only — benchmarked on a hard regime where the classes genuinely overlap.',
-        metrics: '0.967 held-out AUROC (hard) · leak-free split · CI',
-        tech: 'PyTorch · LSTM · Kafka',
-        github: 'https://github.com/IliassSjm/large-anomaly-detection',
-    },
 ]
 
 export function ProjectsSection() {
