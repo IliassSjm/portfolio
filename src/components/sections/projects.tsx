@@ -32,7 +32,7 @@ const projects: Project[] = [
     },
     {
         title: 'Log Anomaly Detection',
-        year: '2023–2026',
+        year: '2025–2026',
         description:
             'Two detectors over event logs: a supervised LSTM classifier, served behind a Kafka streaming pipeline, and a next-event language model trained from scratch on normal flows only. On a benchmark built so the classes overlap, the README explains why the unsupervised model fails.',
         metrics: 'held-out AUROC, hard regime: classifier 0.967 · language model 0.54 · leak-free split',
