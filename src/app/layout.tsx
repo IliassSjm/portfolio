@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -21,11 +21,32 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const title = "Iliass Sijelmassi — Machine Learning & Quantitative Research";
+const description =
+  "Machine learning and quantitative research. Quantitative Researcher Intern at WorldQuant; previously at Stanford. MSc, École Polytechnique & HEC Paris.";
+
 export const metadata: Metadata = {
-  title: "Iliass Sijelmassi | Quantitative Researcher @ WorldQuant · Visiting Researcher @ Stanford",
-  description: "Quantitative Researcher Intern at WorldQuant (Millennium). Visiting Researcher at Stanford University working on deep learning for cardiology. MSc Data Science & AI @ École Polytechnique & HEC Paris.",
-  keywords: ["AI research", "Stanford University", "data science", "machine learning", "deep learning", "python", "pytorch", "École Polytechnique", "HEC Paris", "cardiology AI"],
+  metadataBase: new URL("https://www.iliasssijelmassi.com"),
+  title,
+  description,
   authors: [{ name: "Iliass Sijelmassi" }],
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "Iliass Sijelmassi",
+    title,
+    description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0B0C0F",
 };
 
 export default function RootLayout({

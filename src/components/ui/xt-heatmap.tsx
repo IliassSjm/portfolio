@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion, useReducedMotion } from 'framer-motion'
 
 // Trained Expected Threat surface (12x8, Gaussian-smoothed), value iteration on
 // 251k mirrored possession actions from all 64 matches of World Cup 2022.
@@ -26,11 +25,10 @@ const H = 8 * CELL + 7 * GAP
 
 export function XtHeatmap() {
     const [hover, setHover] = useState<{ r: number; c: number } | null>(null)
-    const reduce = useReducedMotion()
     const hoverValue = hover ? XT[hover.r][hover.c] : null
 
     return (
-        <div className="w-full max-w-md">
+        <div className="w-full">
             <svg
                 viewBox={`0 0 ${W} ${H}`}
                 className="w-full h-auto"
@@ -43,34 +41,38 @@ export function XtHeatmap() {
                         const intensity = Math.sqrt(v / VMAX)
                         const isMax = v === VMAX
                         return (
-                            <motion.rect
+                            <rect
                                 key={`${r}-${c}`}
+                                className="xt-cell"
                                 x={c * (CELL + GAP)}
                                 y={r * (CELL + GAP)}
                                 width={CELL}
                                 height={CELL}
                                 rx={3}
-                                initial={reduce ? false : { opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                transition={{ delay: reduce ? 0 : 0.4 + (c * 8 + r) * 0.014, duration: 0.5 }}
                                 fill="var(--signal)"
                                 fillOpacity={0.06 + 0.85 * intensity}
                                 stroke={isMax ? 'var(--signal)' : 'transparent'}
                                 strokeWidth={isMax ? 1.5 : 0}
                                 onMouseEnter={() => setHover({ r, c })}
-                                style={{ cursor: 'crosshair' }}
+                                style={{
+                                    animationDelay: `${(0.3 + (c * 8 + r) * 0.014).toFixed(3)}s`,
+                                    cursor: 'crosshair',
+                                }}
                             />
                         )
                     })
                 )}
             </svg>
-            <div className="mt-3 flex items-baseline justify-between font-mono text-[11px] text-muted-foreground">
-                <span>
-                    fig. 01 — trained xT surface, WC 2022 · attacking →
-                </span>
-                <span className="tabular-nums text-signal">
-                    {hoverValue !== null ? `xT = ${hoverValue.toFixed(4)}` : `max = ${VMAX.toFixed(3)}`}
-                </span>
+            <div className="mt-3 font-mono text-[11px] text-muted-foreground">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                    <span>fig. 01 — expected-threat surface, World Cup 2022</span>
+                    <span className="tabular-nums text-signal">
+                        {hoverValue !== null ? `xT = ${hoverValue.toFixed(4)}` : `max = ${VMAX.toFixed(3)}`}
+                    </span>
+                </div>
+                <p className="mt-1">
+                    chance that a possession in each zone ends in a goal · attack →
+                </p>
             </div>
         </div>
     )

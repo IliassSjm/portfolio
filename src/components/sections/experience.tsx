@@ -1,9 +1,7 @@
-'use client'
-
 const experiences = [
     {
         title: 'Quantitative Researcher Intern',
-        company: 'WorldQuant (Millennium)',
+        company: 'WorldQuant (Millennium affiliate)',
         period: 'Oct 2026 — Mar 2027',
         description:
             'Research on LLM-based signal extraction from text data within a Millennium systematic pod.',
@@ -13,21 +11,14 @@ const experiences = [
         company: 'Stanford University',
         period: 'Mar 2026 — Sep 2026',
         description:
-            'Cardiac-event prediction under Dr. Louise Sun: deep learning on large-scale, noisy longitudinal clinical data, with leakage-controlled evaluation against clinical risk scores. First-author paper in preparation.',
+            'First-author study with Prof. Louise Sun: predicting a rare, severe complication after cardiac surgery from clinical records and bedside signals. Tested out of sample and validated externally on a second hospital system. Two manuscripts in preparation.',
     },
     {
         title: 'Data Scientist Intern',
         company: 'Crédit Agricole CIB',
         period: 'Mar 2025 — Sep 2025',
         description:
-            'Audit-risk models on 200k+ records (XGBoost + regularized logistic regression), purged time-series validation, SHAP explainability for auditors.',
-    },
-    {
-        title: 'Java Consultant Intern',
-        company: 'Infosys — Renault',
-        period: 'Mar 2023 — Oct 2023',
-        description:
-            'Backend modules for supply-chain platforms. Java, PostgreSQL, Oracle.',
+            'Predicted late implementation of audit recommendations across 200k+ records (logistic regression + XGBoost): F1 ≈ 0.75, validated out-of-time with domain experts.',
     },
 ]
 
@@ -37,7 +28,7 @@ export function ExperienceSection() {
             <div className="container mx-auto px-6 md:px-12 lg:px-24">
                 <div className="mb-12">
                     <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-3">
-                        02 · Experience
+                        03 · Experience
                     </p>
                     <h2 className="font-display text-4xl md:text-5xl tracking-tight">
                         Where I have worked

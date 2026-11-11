@@ -1,17 +1,25 @@
-'use client'
-
+import type { ReactNode } from 'react'
 import { ArrowUpRight } from 'lucide-react'
+import { SharpeDecayFigure } from '@/components/ui/figures'
 
 interface Project {
     title: string
+    year: string
     description: string
     tech: string
-    github: string
+    github?: string
     metrics?: string
-    year: string
+    figure?: ReactNode
 }
 
 const projects: Project[] = [
+    {
+        title: 'Crypto Prediction-Market Strategy',
+        year: '2026 — live',
+        description:
+            'Systematic strategy on Polymarket crypto markets, trading live with an automated daily data and signal pipeline.',
+        tech: 'Python',
+    },
     {
         title: 'Crypto Perpetuals Alpha',
         year: '2026',
@@ -20,6 +28,16 @@ const projects: Project[] = [
         metrics: '#1 / 13 on OOS Sharpe · 9.75 gross @ lag 0 · 1.2 bps break-even cost',
         tech: 'Python · XGBoost · Ridge · walk-forward CV',
         github: 'https://github.com/IliassSjm/crypto-perps-alpha',
+        figure: <SharpeDecayFigure />,
+    },
+    {
+        title: 'Log Anomaly Detection',
+        year: '2023–2026',
+        description:
+            'Two detectors over event logs: a supervised LSTM classifier, served behind a Kafka streaming pipeline, and a next-event language model trained from scratch on normal flows only. On a benchmark built so the classes overlap, the README explains why the unsupervised model fails.',
+        metrics: 'held-out AUROC, hard regime: classifier 0.967 · language model 0.54 · leak-free split',
+        tech: 'PyTorch · LSTM · Kafka · FastAPI',
+        github: 'https://github.com/IliassSjm/large-anomaly-detection',
     },
     {
         title: 'Cognitive Alpha',
@@ -31,6 +49,54 @@ const projects: Project[] = [
         github: 'https://github.com/IliassSjm/cognitive-alpha',
     },
 ]
+
+function ProjectRow({ project }: { project: Project }) {
+    const linked = Boolean(project.github)
+    const body = (
+        <>
+            <div className="md:col-span-4 flex items-start justify-between md:block">
+                <h3
+                    className={`font-display text-2xl md:text-3xl leading-tight transition-colors ${
+                        linked ? 'group-hover:text-signal' : ''
+                    }`}
+                >
+                    {project.title}
+                </h3>
+                <p className="font-mono text-xs text-muted-foreground mt-2 shrink-0 pl-4 md:pl-0">
+                    {project.year}
+                </p>
+            </div>
+            <div className="md:col-span-7 max-w-2xl">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                    {project.description}
+                </p>
+                {project.metrics && (
+                    <p className="font-mono text-xs text-signal mt-3 tabular-nums">
+                        {project.metrics}
+                    </p>
+                )}
+                <p className="font-mono text-[11px] text-muted-foreground mt-3">{project.tech}</p>
+                {project.figure}
+            </div>
+            <div className="hidden md:flex md:col-span-1 justify-end">
+                {linked ? (
+                    <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-signal transition-colors mt-1" />
+                ) : (
+                    <span className="font-mono text-[11px] text-muted-foreground mt-1">private</span>
+                )}
+            </div>
+        </>
+    )
+    const rowClass = 'group grid md:grid-cols-12 gap-3 py-8 border-b border-border'
+
+    return linked ? (
+        <a href={project.github} target="_blank" rel="noopener noreferrer" className={rowClass}>
+            {body}
+        </a>
+    ) : (
+        <div className={rowClass}>{body}</div>
+    )
+}
 
 export function ProjectsSection() {
     return (
@@ -47,38 +113,7 @@ export function ProjectsSection() {
 
                 <div className="border-t border-border">
                     {projects.map((project) => (
-                        <a
-                            key={project.title}
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group grid md:grid-cols-12 gap-3 py-8 border-b border-border"
-                        >
-                            <div className="md:col-span-4 flex items-start justify-between md:block">
-                                <h3 className="font-display text-2xl md:text-3xl leading-tight group-hover:text-signal transition-colors">
-                                    {project.title}
-                                </h3>
-                                <p className="font-mono text-xs text-muted-foreground mt-2">
-                                    {project.year}
-                                </p>
-                            </div>
-                            <div className="md:col-span-7 max-w-2xl">
-                                <p className="text-sm text-muted-foreground leading-relaxed">
-                                    {project.description}
-                                </p>
-                                {project.metrics && (
-                                    <p className="font-mono text-xs text-signal mt-3 tabular-nums">
-                                        {project.metrics}
-                                    </p>
-                                )}
-                                <p className="font-mono text-[11px] text-muted-foreground mt-3">
-                                    {project.tech}
-                                </p>
-                            </div>
-                            <div className="hidden md:flex md:col-span-1 justify-end">
-                                <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-signal transition-colors mt-1" />
-                            </div>
-                        </a>
+                        <ProjectRow key={project.title} project={project} />
                     ))}
                 </div>
 

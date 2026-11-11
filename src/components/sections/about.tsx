@@ -1,11 +1,15 @@
-'use client'
-
 import Image from 'next/image'
 
 const facts = [
-    { label: 'Education', value: 'MSc Data Science & AI — École Polytechnique & HEC Paris' },
-    { label: 'Now', value: 'Visiting Student Researcher, Stanford University' },
-    { label: 'Base', value: 'Stanford, CA / Paris, FR' },
+    {
+        label: 'Education',
+        value: 'MSc Data Science & AI for Business — École Polytechnique & HEC Paris',
+    },
+    {
+        label: 'Now',
+        value: 'Quantitative Researcher Intern, WorldQuant (Millennium affiliate), until March 2027',
+    },
+    { label: 'Base', value: 'Paris, France' },
 ]
 
 export function AboutSection() {
@@ -21,10 +25,11 @@ export function AboutSection() {
                             Machine learning researcher and engineer.
                         </h2>
                         <p className="text-muted-foreground leading-relaxed max-w-2xl mb-10">
-                            Currently at Stanford University, working on cardiac-event
-                            prediction from clinical waveform data with Prof. Louise Sun.
-                            Previously data science at Crédit Agricole CIB and software
-                            engineering at Infosys (Renault).
+                            Currently a quantitative researcher intern at WorldQuant (a Millennium
+                            affiliate), working on LLM-based signal extraction from text. Before
+                            that, a visiting student researcher at Stanford, where I was first
+                            author of a clinical prediction study with Prof. Louise Sun, and a
+                            data science intern at Crédit Agricole CIB.
                         </p>
 
                         <dl className="border-t border-border max-w-2xl">
@@ -48,8 +53,8 @@ export function AboutSection() {
                                 src="/headshot.jpg"
                                 alt="Iliass Sijelmassi"
                                 fill
+                                sizes="(min-width: 768px) 224px, 176px"
                                 className="object-cover object-top"
-                                priority
                             />
                         </div>
                     </div>

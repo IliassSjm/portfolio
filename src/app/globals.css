@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -88,4 +87,57 @@ html {
 ::selection {
   background: rgba(52, 211, 153, 0.22);
   color: #fff;
+}
+
+/* Keyboard focus in the site accent instead of the browser default */
+:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Entrance animations are plain CSS, so the page is readable before (or
+   without) JavaScript. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.anim-rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.anim-fade {
+  animation: fade 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.xt-cell {
+  animation: fade 0.5s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .anim-rise,
+  .anim-fade,
+  .xt-cell {
+    animation: none;
+  }
 }

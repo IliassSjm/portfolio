@@ -1,8 +1,7 @@
 'use client'
 
-import { motion, useScroll, useSpring } from 'framer-motion'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Github, Linkedin, Mail } from 'lucide-react'
 
 const navItems = [
@@ -13,19 +12,72 @@ const navItems = [
     { label: 'Contact', href: '/#contact' },
 ]
 
+const socials = [
+    { label: 'GitHub', href: 'https://github.com/IliassSjm', icon: Github },
+    {
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/iliass-sijelmassi-068b46189/',
+        icon: Linkedin,
+    },
+    {
+        label: 'Email',
+        href: 'mailto:iliass.sijelmassi-idrissi@polytechnique.edu',
+        icon: Mail,
+    },
+]
+
 export function Navigation() {
     const [isOpen, setIsOpen] = useState(false)
-    const [hovered, setHovered] = useState<string | null>(null)
-    const { scrollYProgress } = useScroll()
-    const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 40 })
+    const [pill, setPill] = useState({ left: 0, width: 0, visible: false })
+    const progressRef = useRef<HTMLDivElement>(null)
+
+    // Scroll progress hairline under the bar
+    useEffect(() => {
+        const bar = progressRef.current
+        if (!bar) return
+        let frame = 0
+        const update = () => {
+            frame = 0
+            const max = document.documentElement.scrollHeight - window.innerHeight
+            const progress = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0
+            bar.style.transform = `scaleX(${progress})`
+        }
+        const onScroll = () => {
+            if (!frame) frame = requestAnimationFrame(update)
+        }
+        update()
+        window.addEventListener('scroll', onScroll, { passive: true })
+        window.addEventListener('resize', onScroll)
+        return () => {
+            window.removeEventListener('scroll', onScroll)
+            window.removeEventListener('resize', onScroll)
+            if (frame) cancelAnimationFrame(frame)
+        }
+    }, [])
+
+    // Mobile menu: Escape closes it, and the page behind does not scroll
+    useEffect(() => {
+        if (!isOpen) return
+        const onKey = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') setIsOpen(false)
+        }
+        const previousOverflow = document.body.style.overflow
+        document.body.style.overflow = 'hidden'
+        document.addEventListener('keydown', onKey)
+        return () => {
+            document.body.style.overflow = previousOverflow
+            document.removeEventListener('keydown', onKey)
+        }
+    }, [isOpen])
 
     return (
         <>
-            <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background/95">
-                {/* Scroll progress hairline */}
-                <motion.div
+            <nav className="fixed top-0 left-0 right-0 z-50 border-b border-border/60 bg-background">
+                <div
+                    ref={progressRef}
+                    aria-hidden
                     className="absolute bottom-0 left-0 right-0 h-px bg-signal origin-left"
-                    style={{ scaleX: progress }}
+                    style={{ transform: 'scaleX(0)' }}
                 />
                 <div className="flex items-center justify-between px-6 py-4 md:px-12">
                     <Link
@@ -35,88 +87,98 @@ export function Navigation() {
                         i.sijelmassi
                     </Link>
 
-                    {/* Desktop */}
+                    {/* Desktop links, with a pill that slides to the hovered item */}
                     <div
-                        className="hidden md:flex items-center gap-1"
-                        onMouseLeave={() => setHovered(null)}
+                        className="relative hidden md:flex items-center gap-1"
+                        onMouseLeave={() => setPill((p) => ({ ...p, visible: false }))}
                     >
+                        <span
+                            aria-hidden
+                            className="absolute left-0 top-0 h-full rounded-md bg-secondary transition-[transform,width,opacity] duration-200 ease-out"
+                            style={{
+                                transform: `translateX(${pill.left}px)`,
+                                width: pill.width,
+                                opacity: pill.visible ? 1 : 0,
+                            }}
+                        />
                         {navItems.map((item) => (
                             <Link
                                 key={item.label}
                                 href={item.href}
-                                onMouseEnter={() => setHovered(item.label)}
-                                className="relative px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                                onMouseEnter={(e) =>
+                                    setPill({
+                                        left: e.currentTarget.offsetLeft,
+                                        width: e.currentTarget.offsetWidth,
+                                        visible: true,
+                                    })
+                                }
+                                className="relative z-10 px-3 py-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
                             >
-                                {hovered === item.label && (
-                                    <motion.span
-                                        layoutId="nav-hover"
-                                        className="absolute inset-0 rounded-md bg-secondary"
-                                        transition={{ type: 'spring', stiffness: 350, damping: 30 }}
-                                    />
-                                )}
-                                <span className="relative z-10">{item.label}</span>
+                                {item.label}
                             </Link>
                         ))}
                     </div>
 
                     <div className="hidden md:flex items-center gap-4">
                         <a
-                            href="https://github.com/IliassSjm"
+                            href="/cv.pdf"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors"
-                            aria-label="GitHub"
+                            className="font-mono text-xs text-muted-foreground hover:text-signal transition-colors"
                         >
-                            <Github className="w-4 h-4" />
+                            cv ↗
                         </a>
-                        <a
-                            href="https://www.linkedin.com/in/iliass-sijelmassi-068b46189/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors"
-                            aria-label="LinkedIn"
-                        >
-                            <Linkedin className="w-4 h-4" />
-                        </a>
-                        <a
-                            href="mailto:iliass.sijelmassi-idrissi@polytechnique.edu"
-                            className="text-muted-foreground hover:text-foreground transition-colors"
-                            aria-label="Email"
-                        >
-                            <Mail className="w-4 h-4" />
-                        </a>
+                        {socials.map(({ label, href, icon: Icon }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                target={href.startsWith('mailto:') ? undefined : '_blank'}
+                                rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                                className="text-muted-foreground hover:text-foreground transition-colors"
+                                aria-label={label}
+                            >
+                                <Icon className="w-4 h-4" />
+                            </a>
+                        ))}
                     </div>
 
                     {/* Mobile toggle */}
                     <button
-                        onClick={() => setIsOpen(!isOpen)}
+                        type="button"
+                        onClick={() => setIsOpen((open) => !open)}
                         className="md:hidden flex flex-col gap-1.5 p-2"
-                        aria-label="Toggle menu"
+                        aria-label={isOpen ? 'Close menu' : 'Open menu'}
+                        aria-expanded={isOpen}
+                        aria-controls="mobile-menu"
                     >
-                        <motion.span
-                            animate={isOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-                            className="block h-px w-6 bg-white"
+                        <span
+                            className={`block h-px w-6 bg-white transition-transform duration-200 ${
+                                isOpen ? 'translate-y-[7px] rotate-45' : ''
+                            }`}
                         />
-                        <motion.span
-                            animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-                            className="block h-px w-6 bg-white"
+                        <span
+                            className={`block h-px w-6 bg-white transition-opacity duration-200 ${
+                                isOpen ? 'opacity-0' : ''
+                            }`}
                         />
-                        <motion.span
-                            animate={isOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-                            className="block h-px w-6 bg-white"
+                        <span
+                            className={`block h-px w-6 bg-white transition-transform duration-200 ${
+                                isOpen ? '-translate-y-[7px] -rotate-45' : ''
+                            }`}
                         />
                     </button>
                 </div>
             </nav>
 
             {/* Mobile menu */}
-            <motion.div
-                initial={false}
-                animate={isOpen ? { x: 0 } : { x: '100%' }}
-                transition={{ type: 'spring', damping: 28, stiffness: 220 }}
-                className="fixed inset-y-0 right-0 z-40 w-full max-w-sm bg-card border-l border-border md:hidden"
+            <div
+                id="mobile-menu"
+                inert={!isOpen}
+                className={`fixed inset-y-0 right-0 z-40 w-full max-w-sm bg-card border-l border-border md:hidden transition-transform duration-300 ease-out ${
+                    isOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}
             >
-                <div className="flex flex-col gap-6 p-12 pt-24">
+                <div className="flex h-full flex-col gap-6 p-12 pt-24">
                     {navItems.map((item) => (
                         <Link
                             key={item.label}
@@ -127,8 +189,31 @@ export function Navigation() {
                             {item.label}
                         </Link>
                     ))}
+                    <a
+                        href="/cv.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setIsOpen(false)}
+                        className="font-display text-2xl hover:text-signal transition-colors"
+                    >
+                        CV ↗
+                    </a>
+                    <div className="mt-auto flex items-center gap-6 border-t border-border pt-6">
+                        {socials.map(({ label, href, icon: Icon }) => (
+                            <a
+                                key={label}
+                                href={href}
+                                target={href.startsWith('mailto:') ? undefined : '_blank'}
+                                rel={href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                                className="flex items-center gap-2 font-mono text-xs text-muted-foreground hover:text-foreground transition-colors"
+                            >
+                                <Icon className="w-4 h-4" />
+                                {label.toLowerCase()}
+                            </a>
+                        ))}
+                    </div>
                 </div>
-            </motion.div>
+            </div>
 
             {isOpen && (
                 <div
