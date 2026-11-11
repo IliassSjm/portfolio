@@ -1,24 +1,16 @@
-# Personal Portfolio
+# iliasssijelmassi.com
 
-My portfolio website showcasing my work in Machine Learning, Data Science, and AI.
+Source of my personal site.
 
-## Tech Stack
+Next.js (App Router), TypeScript and Tailwind CSS. The page is server-rendered; the only client-side code is the navigation and the hover readout on the hero figure.
 
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS
-- **Animations:** Framer Motion
-- **3D:** Spline
+The figures on the page are drawn from my own project results: the expected-threat surface from [cognitive-alpha](https://github.com/IliassSjm/cognitive-alpha), Sharpe by execution lag from [crypto-perps-alpha](https://github.com/IliassSjm/crypto-perps-alpha), and the AUROC intervals from the tamponade study.
 
-## Run Locally
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view.
-
----
-
-© 2025 Iliass Sijelmassi
+Then open http://localhost:3000.
