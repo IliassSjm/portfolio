@@ -1,24 +1,34 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const instrumentSans = Instrument_Sans({
+// Fonts are self-hosted (SIL Open Font License, see ./fonts/OFL-*.txt) so the
+// build does not depend on fetching them from Google Fonts.
+const instrumentSans = localFont({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  src: [
+    { path: "./fonts/instrument-sans-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/instrument-sans-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/instrument-sans-latin-600-normal.woff2", weight: "600", style: "normal" },
+  ],
 });
 
-const instrumentSerif = Instrument_Serif({
+const instrumentSerif = localFont({
   variable: "--font-disp",
-  subsets: ["latin"],
-  weight: "400",
-  style: ["normal", "italic"],
+  adjustFontFallback: "Times New Roman",
+  src: [
+    { path: "./fonts/instrument-serif-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/instrument-serif-latin-400-italic.woff2", weight: "400", style: "italic" },
+  ],
 });
 
-const jetbrainsMono = JetBrains_Mono({
+const jetbrainsMono = localFont({
   variable: "--font-jbm",
-  subsets: ["latin"],
-  weight: ["400", "500"],
+  adjustFontFallback: false,
+  src: [
+    { path: "./fonts/jetbrains-mono-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/jetbrains-mono-latin-500-normal.woff2", weight: "500", style: "normal" },
+  ],
 });
 
 const title = "Iliass Sijelmassi — Machine Learning & Quantitative Research";
